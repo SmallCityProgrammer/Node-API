@@ -1,8 +1,11 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const router = express.Router();
+
+mongoose.connect('mongodb+srv://smallcityprogrammer:nM5TB1LgjUvjtLPO@cluster0.gjd9g7t.mongodb.net/?retryWrites=true&w=majority')
 
 const indexRoute = require('./routes/index-route')
 const productRoute = require('./routes/product-route')
