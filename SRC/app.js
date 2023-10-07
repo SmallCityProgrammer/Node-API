@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
 const router = express.Router();
 
-mongoose.connect('mongodb+srv://smallcityprogrammer:nM5TB1LgjUvjtLPO@cluster0.gjd9g7t.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology:true} )
+.then(() => {
+  console.log('Conectado a DB');
+  console.log()
+  app.emit('pronto');
+}).catch(e => console.log(e))
 
 const indexRoute = require('./routes/index-route')
 const productRoute = require('./routes/product-route')
