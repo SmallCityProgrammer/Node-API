@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const router = express.Router();
 
 mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology:true} )
 .then(() => {
