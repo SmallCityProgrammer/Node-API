@@ -7,23 +7,22 @@ const schema = new Schema({
   title: {
     type:String,
     required: true,
-    trim: trusted
+    trim: true
   },
   slug: {
     type: String,
-    required: true,
+    required: [true, "O slug é obrigatório"],
     trim:true,
     index:true,
     unique:true
   },
   description: {
     type:String,
-    required:true,
-    trim:true
+    required:true
   },
   price: {
     type: Number,
-    required:true,
+    required:true
   },
   active: {
     type: Boolean,
@@ -36,4 +35,4 @@ const schema = new Schema({
   }]
 });
 
-module.export = mongoose.model('Product', schema);
+module.exports = mongoose.model('Product', schema);

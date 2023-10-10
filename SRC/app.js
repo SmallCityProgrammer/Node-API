@@ -6,12 +6,13 @@ require('dotenv').config();
 const app = express();
 
 mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology:true} )
-.then(() => {
-  console.log('Conectado a DB');
-  console.log()
-  app.emit('pronto');
-}).catch(e => console.log(e))
+  .then(() => {
+    console.log('Conectado a DB');
+    console.log()
+    app.emit('pronto');
+  }).catch(e => console.log(e));
 
+const Product = require('./Models/product')
 const indexRoute = require('./routes/index-route')
 const productRoute = require('./routes/product-route')
 
