@@ -21,7 +21,7 @@ exports.getBySlug = (slug) => {
 exports.getById = (id) => {
   return Product
   .findById(id)
-}
+};
 
 exports.getByTag = (tag) => {
   return Product
@@ -29,13 +29,12 @@ exports.getByTag = (tag) => {
     tags: tag,
     active: true
   }, "title description slug tags")
-}
+};
 
 exports.create = (data) => {
   var product = new Product(data); // Changed 'product' to 'Product'
   return product.save();
-
-}
+};
 
 exports.update = (id, data) => {
   return Product
@@ -47,9 +46,9 @@ exports.update = (id, data) => {
       slug: data.slug
     }
   })
-}
+};
 
 exports.delete = (id) => {
   return Product
     .findOneAndRemove(id);
-}
+};
