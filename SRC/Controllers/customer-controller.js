@@ -24,5 +24,4 @@ exports.post = async (req,res,next) => {
       res.status(500).send({
         message: "Falha ao cadastrar sua requisição"})
     }
-
 };

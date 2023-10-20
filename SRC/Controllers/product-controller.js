@@ -10,7 +10,6 @@ exports.get = async (req,res,next) => {
   } catch (e) {
     res.status(500).send({message: "Erro! 505"})
   }
-  
 }
 
 exports.getBySlug = async (req,res,next) => {
@@ -23,7 +22,6 @@ exports.getBySlug = async (req,res,next) => {
   } catch (e) {
     res.status(500).send({message: "Erro!"})
   }
-
 }
 
 exports.getById = async (req,res,next) => {
@@ -36,7 +34,6 @@ exports.getById = async (req,res,next) => {
   } catch (error) {
     res.status(500).send({message: "Erro!"})
   }
-
 };
 
 exports.getByTag = async (req,res,next) => {
@@ -49,7 +46,6 @@ exports.getByTag = async (req,res,next) => {
   } catch (e) {
     res.status(500).send({message: "Erro!"})
   }
-
 }
 
 exports.post = async (req,res,next) => {
