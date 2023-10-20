@@ -13,6 +13,10 @@ mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifie
   }).catch(e => console.log(e));
 
 const Product = require('./Models/product')
+const Customer = require("./Models/customer")
+const Order = require('./Models/order')
+
+
 const indexRoute = require('./routes/index-route')
 const productRoute = require('./routes/product-route')
 
