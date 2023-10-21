@@ -2,7 +2,8 @@
 
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/customer-repository');
-const md5 = require('md5')
+const md5 = require('md5');
+const authService = require('../services/auth-service');
 
 exports.post = async (req,res,next) => {
   let contract = new ValidationContract();
@@ -28,5 +29,31 @@ exports.post = async (req,res,next) => {
     } catch (e) {
       res.status(500).send({
         message: "Falha ao cadastrar sua requisição"})
+    }
+};
+
+exports.authenticate = async (req,res,next) => {
+  try {
+    const customer = await repository.authenticate({
+      email:req.body.email,
+      password:md5(req.body.password + global.SALT_KEY)
+    });
+
+    const token = await authService.generateToken({
+      email: customer.email,
+      name: customer.name
+    });
+
+    res.status(201).send({
+      token: token,
+      data: {
+        email: customer.email,
+        name:customer.name
+      }
+    });
+
+  } catch (e) {
+    res.status(500).send({
+      message: "Falha ao cadastrar sua requisição"})
     }
 };

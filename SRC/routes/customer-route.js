@@ -6,5 +6,6 @@ const controller = require('../Controllers/customer-controller')
 
 
 router.post('/', controller.post);
+router.post('/authenticate', controller.post);
 
 module.exports = router;
