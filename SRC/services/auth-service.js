@@ -8,6 +8,7 @@ exports.generateToken = async (data) => {
 
 exports.decodeToken = async (token) => {
   var data = await jwt.verify(token, global.SALT_KEY);
+  return data;
 }
 
 exports.authorize = function (req, res, next) {
