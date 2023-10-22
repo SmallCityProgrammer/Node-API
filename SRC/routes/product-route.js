@@ -11,6 +11,6 @@ router.get('/:slug', controller.getBySlug);
 router.get('/tags/:tag', controller.getByTag);
 router.post('/', authService.isAdmin, controller.post);
 router.put('/:id', authService.isAdmin, controller.put);
-router.delete('/:id', authService.isAdmin, controller.delete);
+router.delete('/', authService.isAdmin, controller.delete);
 
 module.exports = router;

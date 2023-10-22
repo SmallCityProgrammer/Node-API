@@ -59,11 +59,11 @@ exports.post = async (req,res,next) => {
       return;
     }
     try {
-          await repository.create(req.body)
-    .then(x => {
-        res.status(201).send({
-          message: 'Produto cadastrado com sucesso!'
-        })
+      await repository.create(req.body)
+
+      res.status(201).send({
+        message: 'Produto cadastrado com sucesso!'
+
       });
     } catch (e) {
       res.status(500).send({message: "Erro"})

@@ -38,7 +38,7 @@ exports.getByTag = async (tag) => {
 };
 
 exports.create = async (data) => {
-  var product = new Product(data); // Changed 'product' to 'Product'
+  var product = new Product(data);
   await product.save();
 };
 
