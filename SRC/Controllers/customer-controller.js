@@ -29,7 +29,7 @@ exports.post = async (req,res,next) => {
 
     } catch (e) {
       res.status(500).send({
-        message: "Falha ao cadastrar sua requisição"})
+        message: "Falha ao cadastrar sua requisição"});
     }
 };
 
@@ -65,7 +65,7 @@ exports.authenticate = async (req,res,next) => {
   } catch (e) {
     res.status(500).send({
       message: "Falha ao cadastrar sua requisição"})
-    }
+    };
 };
 
 exports.refreshToken = async (req,res,next) => {
@@ -101,5 +101,5 @@ exports.refreshToken = async (req,res,next) => {
     console.log(e)
     res.status(500).send({
       message: "Falha ao cadastrar sua requisição"})
-    }
+    };
 };
